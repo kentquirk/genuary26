@@ -1,0 +1,72 @@
+content:
+  artworks:
+    - name: subwaytextile
+      title: Subway Textile
+      subtitle: (The textile design patterns of public transport seating)
+      timestamp: Genuary 9, 2025
+      image: subwaytextile.png
+      alt: A pattern of colored lines forming a grid that is similar to the patterns on the seats in a subway.
+      body: Vertical and horizontal stripes in 4 colors, with the spacing between them varying sinusoidally.
+      tryit: https://kentquirk.github.io/genuary26/subwaytextile
+      source: https://github.com/kentquirk/genuary26/tree/main/src/sketches/subwaytextile
+    - name: iso
+      title: Isometric
+      subtitle: (No vanishing points)
+      timestamp: Genuary 5, 2025
+      image: iso.png
+      alt: A 3D isometric view of a grid of colored blocks.
+      body: |
+        This is an isometric view of a grid of colored blocks. The blocks are
+        randomly colored and the grid is randomly generated. The camera is fixed
+        and the blocks are animated to slide around the grid without colliding.
+      tryit: https://kentquirk.github.io/genuary26/iso
+      source: https://github.com/kentquirk/genuary26/tree/main/src/sketches/iso
+    - name: fortytwo
+      title: Forty-Two
+      subtitle: (exactly 42 lines of code)
+      timestamp: Genuary 3, 2025
+      image: fortytwo.png
+      alt: The number 42 animated against a colored background.
+      body: |
+        This is a simple animation of the number 42. The point was only 42 lines
+        of code, which I interpreted to mean the JS file containing the script.
+      tryit: https://kentquirk.github.io/genuary26/fortytwo
+      source: https://github.com/kentquirk/genuary26/tree/main/src/sketches/fortytwo
+    - name: layersonlayers
+      title: Layers on Layers on Layers
+      subtitle: (and also Black on Black)
+      timestamp: Genuary 2 AND 4, 2025
+      image: layersonlayers.png
+      alt: |
+        Brightly colored circles, triangles, and squares on a red background,
+        showing fading trails of their past motion.
+      body: |
+        Simple shapes, simple motion, but we don't clear the screen each frame,
+        so we see layers of the movement history. The black on black version is a
+        little more subtle.
+      tryit: https://kentquirk.github.io/genuary26/layersonlayers
+      source: https://github.com/kentquirk/genuary26/tree/main/src/sketches/layersonlayers
+    - name: vortech
+      title: Vortech
+      subtitle: (Only vertical and horizontal lines.)
+      timestamp: Genuary 1, 2025
+      image: vortech.png
+      alt: An image viewed through a Voronoi mesh and colored with only vertical and horizontal lines.
+      body: |
+        This is a Voronoi diagram overlaying an image, where each cell is colored
+        with only vertical and horizontal lines. Doesn't really work (yet) on
+        mobile, sorry.
+      tryit: https://kentquirk.github.io/genuary26/vortech
+      source: https://github.com/kentquirk/genuary26/tree/main/src/sketches/vortech
+    - name: parametrix
+      title: Parametrix
+      subtitle: (Graphics driven entirely by parametric functions)
+      timestamp: December, 2024
+      image: parametrix.png
+      alt: A sinusoidal pattern with smoothly varying colors and line width
+      body: |
+        A graphical system where every parameter can be controlled by a function
+        of t. Can be static or animated.
+      tryit: https://kentquirk.github.io/genuary26/parametrix
+      source: https://github.com/kentquirk/genuary26/tree/main/src/sketches/parametrix
+

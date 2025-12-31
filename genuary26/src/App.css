@@ -1,0 +1,13 @@
+#root {
+  min-height: 100vh;
+}
+
+.intro-text {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .intro-text {
+    text-align: center;
+  }
+}
