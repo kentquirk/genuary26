@@ -6,6 +6,11 @@
   text-align: left;
 }
 
+.lead {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
 @media (max-width: 768px) {
   .intro-text {
     text-align: center;

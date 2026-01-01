@@ -39,13 +39,16 @@ function App() {
         <h1 className="display-3 fw-bold mb-4">Genuary 2026</h1>
         <div className="intro-text mx-auto" style={{ maxWidth: "800px" }}>
           <p className="lead">
-            Genuary is a month-long creative coding challenge that takes place
-            every January. Each day presents a unique prompt, encouraging
-            artists and coders to explore new ideas and push the boundaries of
-            generative art.
+            Genuary is a{" "}
+            <a href="https://genuary.art/">
+              month-long creative coding challenge
+            </a>{" "}
+            that takes place every January. Each day presents a unique prompt,
+            encouraging artists and coders to explore new ideas and push the
+            boundaries of generative art.
           </p>
           <p>
-            Below are my contributions for Genuary 2026, showcasing a variety of
+            Below are my projects for Genuary 2026, showcasing a variety of
             creative coding experiments. Each piece can be viewed interactively,
             and the source code is available for those interested in learning
             more about how they work.
