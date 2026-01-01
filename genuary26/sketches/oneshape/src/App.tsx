@@ -30,7 +30,7 @@ function App() {
         levelSizeMultiplier
       );
       controlsRef.current = controls;
-    }, "sketch-holder");
+    }, document.getElementById("sketch-holder")!);
 
     // Cleanup on unmount
     return () => {
