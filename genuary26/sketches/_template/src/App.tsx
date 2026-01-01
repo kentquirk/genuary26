@@ -42,6 +42,14 @@ function App() {
       <Container className="py-4">
         <Row>
           <Col>
+            <div className="text-start mb-1" style={{ lineHeight: "1.2" }}>
+              <a
+                href="https://kentquirk.github.io/genuary26/"
+                className="text-decoration-none"
+              >
+                ← Home
+              </a>
+            </div>
             <h1 className="text-center mb-3">__TITLE__</h1>
             <p className="text-center mb-4">
               An interactive generative sketch for Genuary 2026, Day __DAY__.
@@ -51,8 +59,8 @@ function App() {
 
         <hr className="my-4" />
 
-        <Row className="mb-4">
-          <Col xs={12} sm={6} className="mb-2 mb-sm-0">
+        <Row className="mb-1">
+          <Col xs={4} className="mb-2 mb-sm-0">
             <Button
               variant="primary"
               onClick={handleRandomizeColor}
@@ -61,7 +69,7 @@ function App() {
               Randomize Color
             </Button>
           </Col>
-          <Col xs={12} sm={6}>
+          <Col xs={4}>
             <Button
               variant="secondary"
               onClick={handleRestart}

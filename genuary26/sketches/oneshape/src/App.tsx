@@ -63,6 +63,14 @@ function App() {
       <Container className="py-4">
         <Row>
           <Col>
+            <div className="text-start mb-1" style={{ lineHeight: "1.2" }}>
+              <a
+                href="https://kentquirk.github.io/genuary26/"
+                className="text-decoration-none"
+              >
+                ← Home
+              </a>
+            </div>
             <h1 className="text-center mb-3">One Shape, One Color</h1>
             <p className="text-center mb-4">
               That's the Genuary prompt for Jan 1, 2026. I decided to draw
@@ -71,10 +79,10 @@ function App() {
           </Col>
         </Row>
 
-        <hr className="my-4" />
+        <hr className="my-1" />
 
         {/* Slider Controls */}
-        <Row className="mb-4">
+        <Row className="mb-1">
           <Col xs={4} className="mb-3">
             <Form.Group>
               <Form.Label>Depth: {maxDepth}</Form.Label>
@@ -115,9 +123,7 @@ function App() {
           </Col>
         </Row>
 
-        <hr className="my-4" />
-
-        <Row className="mb-4">
+        <Row className="mb-1">
           <Col xs={4} className="mb-2 mb-sm-0">
             <Button
               variant="primary"
@@ -127,7 +133,7 @@ function App() {
               Recolor
             </Button>
           </Col>
-          <Col xs={4} className="mb-2 mb-md-0">
+          <Col xs={4} className="mb-2 mb-sm-0">
             <Button
               variant="secondary"
               onClick={handleRestart}
@@ -137,7 +143,11 @@ function App() {
             </Button>
           </Col>
           <Col xs={4}>
-            <Button variant="secondary" onClick={handleSave} className="w-100">
+            <Button
+              variant="secondary"
+              onClick={handleSave}
+              className="mb-2 mb-sm-0 w-100"
+            >
               Save Image
             </Button>
           </Col>
