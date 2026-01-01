@@ -8,6 +8,7 @@ function App() {
   const controlsRef = useRef<{
     restart: () => void;
     randomizeColor: () => void;
+    saveImage: () => void;
   } | null>(null);
 
   const [maxDepth, setMaxDepth] = useState(6);
@@ -51,17 +52,21 @@ function App() {
     }
   };
 
+  const handleSave = () => {
+    if (controlsRef.current) {
+      controlsRef.current.saveImage();
+    }
+  };
+
   return (
     <Container fluid className="p-0">
       <Container className="py-4">
         <Row>
           <Col>
-            <h1 className="text-center mb-3">Sketch Template</h1>
-            <p className="text-center text-muted mb-4">
-              This is a template for creating p5.js sketches with React and
-              Bootstrap. The canvas below is square and responsive to the screen
-              width. Use the buttons to interact with the sketch, or press
-              spacebar to pause and 'r' to restart.
+            <h1 className="text-center mb-3">One Shape, One Color</h1>
+            <p className="text-center mb-4">
+              That's the Genuary prompt for Jan 1, 2026. I decided to draw
+              triangles.
             </p>
           </Col>
         </Row>
@@ -117,7 +122,7 @@ function App() {
         <hr className="my-4" />
 
         <Row className="mb-4">
-          <Col xs={12} sm={6} className="mb-2 mb-sm-0">
+          <Col xs={12} sm={6} md={4} className="mb-2 mb-sm-0">
             <Button
               variant="primary"
               onClick={handleRandomizeColor}
@@ -126,13 +131,18 @@ function App() {
               Randomize Color
             </Button>
           </Col>
-          <Col xs={12} sm={6}>
+          <Col xs={12} sm={6} md={4} className="mb-2 mb-md-0">
             <Button
               variant="secondary"
               onClick={handleRestart}
               className="w-100"
             >
               Restart
+            </Button>
+          </Col>
+          <Col xs={12} md={4}>
+            <Button variant="secondary" onClick={handleSave} className="w-100">
+              Save Image
             </Button>
           </Col>
         </Row>

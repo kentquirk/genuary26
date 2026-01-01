@@ -91,6 +91,10 @@ export function sketch(p: p5, maxDepth: number = 6, levelCountMultiplier: number
     triangleColor = p.color(p.random(255), p.random(255), p.random(255));
   };
 
+  const saveImage = () => {
+    p.save('oneshape.jpg');
+  };
+
   p.windowResized = () => {
     const size = getCanvasSize();
     p.resizeCanvas(size, size);
@@ -131,5 +135,6 @@ export function sketch(p: p5, maxDepth: number = 6, levelCountMultiplier: number
   return {
     restart,
     randomizeColor,
+    saveImage,
   };
 }
