@@ -80,11 +80,6 @@ for sketch_dir in sketches/*/; do
     update_checksum "$sketch_name" "$current_checksum"
   fi
 
-  # Copy sketch dist to main dist folder
-  echo "  Copying $sketch_name to dist/$sketch_name"
-  mkdir -p "dist/$sketch_name"
-  cp -r "${sketch_dir}dist/"* "dist/$sketch_name/"
-
   # append the sketch's content.yaml to the general content.yaml
   if [ -f "${sketch_dir}content.yaml" ]; then
     echo "  Merging content.yaml for $sketch_name"
@@ -92,10 +87,30 @@ for sketch_dir in sketches/*/; do
   fi
 done
 
-# Now we can build the main project
+# Now build the main project (this clears dist/)
 echo ""
 echo "📦 Building main project..."
 npm run build
+
+# Copy all sketch builds to main dist folder AFTER main build
+echo ""
+echo "📋 Copying sketches to dist..."
+for sketch_dir in sketches/*/; do
+  # Skip if it's the template directory
+  if [[ "$sketch_dir" == "sketches/_template/" ]]; then
+    continue
+  fi
+
+  # Skip if it doesn't have a dist folder
+  if [ ! -d "${sketch_dir}dist" ]; then
+    continue
+  fi
+
+  sketch_name=$(basename "$sketch_dir")
+  echo "  Copying $sketch_name to dist/$sketch_name"
+  mkdir -p "dist/$sketch_name"
+  cp -r "${sketch_dir}dist/"* "dist/$sketch_name/"
+done
 
 echo ""
 echo "✅ Build complete! All projects ready in dist/"
