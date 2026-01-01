@@ -75,9 +75,9 @@ function App() {
 
         {/* Slider Controls */}
         <Row className="mb-4">
-          <Col xs={12} md={4} className="mb-3">
+          <Col xs={4} className="mb-3">
             <Form.Group>
-              <Form.Label>Max Depth: {maxDepth}</Form.Label>
+              <Form.Label>Depth: {maxDepth}</Form.Label>
               <Form.Range
                 min={1}
                 max={10}
@@ -86,11 +86,9 @@ function App() {
               />
             </Form.Group>
           </Col>
-          <Col xs={12} md={4} className="mb-3">
+          <Col xs={4} className="mb-3">
             <Form.Group>
-              <Form.Label>
-                Level Count Multiplier: {levelCountMultiplier}
-              </Form.Label>
+              <Form.Label>Count: {levelCountMultiplier}</Form.Label>
               <Form.Range
                 min={1}
                 max={6}
@@ -101,11 +99,9 @@ function App() {
               />
             </Form.Group>
           </Col>
-          <Col xs={12} md={4} className="mb-3">
+          <Col xs={4} className="mb-3">
             <Form.Group>
-              <Form.Label>
-                Level Size Multiplier: {levelSizeMultiplier.toFixed(2)}
-              </Form.Label>
+              <Form.Label>Size: {levelSizeMultiplier.toFixed(2)}</Form.Label>
               <Form.Range
                 min={0.3}
                 max={0.7}
@@ -122,16 +118,16 @@ function App() {
         <hr className="my-4" />
 
         <Row className="mb-4">
-          <Col xs={12} sm={6} md={4} className="mb-2 mb-sm-0">
+          <Col xs={4} className="mb-2 mb-sm-0">
             <Button
               variant="primary"
               onClick={handleRandomizeColor}
               className="w-100"
             >
-              Randomize Color
+              Recolor
             </Button>
           </Col>
-          <Col xs={12} sm={6} md={4} className="mb-2 mb-md-0">
+          <Col xs={4} className="mb-2 mb-md-0">
             <Button
               variant="secondary"
               onClick={handleRestart}
@@ -140,7 +136,7 @@ function App() {
               Restart
             </Button>
           </Col>
-          <Col xs={12} md={4}>
+          <Col xs={4}>
             <Button variant="secondary" onClick={handleSave} className="w-100">
               Save Image
             </Button>
