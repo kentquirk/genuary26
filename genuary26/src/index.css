@@ -1,11 +1,19 @@
 :root {
+  /* Theme Colors */
+  --bg-color: #480355;
+  --primary-color: #7699D4;
+  --primary-hover: #5A7FC9;
+  --secondary-color: #91CADE;
+  --secondary-hover: #6FB2C6;
+  --text-color: #C3FDFC;
+
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--text-color);
+  background-color: var(--bg-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -28,11 +36,18 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--bg-color);
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: var(--text-color);
+}
+
+p {
+  font-size: 1.25em;
+  color: var(--text-color);
 }
 
 button {
@@ -54,15 +69,62 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Bootstrap card overrides */
+.card {
+  background-color: #743795;
+  color: var(--text-color);
+  border: none;
+}
+
+.card-title {
+  color: var(--text-color);
+}
+
+.card-subtitle {
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.card-text {
+  color: var(--text-color);
+}
+
+/* Bootstrap button overrides */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: #000;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:active {
+  background-color: var(--secondary-hover);
+  border-color: var(--secondary-hover);
+  color: #000;
+}
+
+.btn-outline-secondary {
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus,
+.btn-outline-secondary:active {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: #000;
 }

@@ -1,5 +1,5 @@
-import { Card, Button, Row, Col } from 'react-bootstrap';
-import placeholderImg from '../assets/images/placeholder.png';
+import { Card, Button, Row, Col } from "react-bootstrap";
+import placeholderImg from "../assets/images/placeholder.png";
 
 interface GenuaryCardProps {
   name: string;
@@ -35,16 +35,16 @@ const GenuaryCard = ({
         alt={alt}
         onError={handleImageError}
         style={{
-          aspectRatio: '1 / 1',
-          objectFit: 'cover',
-          width: '100%'
+          aspectRatio: "1 / 1",
+          objectFit: "cover",
+          width: "100%",
         }}
       />
       <Card.Body className="d-flex flex-column">
         <Card.Title className="fw-bold">{title}</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">{subtitle}</Card.Subtitle>
-        <div className="text-muted small mb-3">{timestamp}</div>
-        <Card.Text className="flex-grow-1" style={{ fontSize: '0.9rem' }}>
+        <Card.Subtitle className="mb-2">{subtitle}</Card.Subtitle>
+        <div className="small mb-3">{timestamp}</div>
+        <Card.Text className="flex-grow-1" style={{ fontSize: "0.9rem" }}>
           {body}
         </Card.Text>
         <Row className="g-2 mt-auto">
