@@ -15,14 +15,3 @@ content:
         between black and the chosen color. All the triangles are randomly rotated.
       tryit: https://kentquirk.github.io/genuary26/oneshape/
       source: https://github.com/kentquirk/genuary26/tree/main/genuary26/sketches/oneshape/src/sketch.ts
-    - name: testproj
-      title: My Test Project
-      subtitle: TODO
-      day: 2
-      timestamp: Genuary 2, 2026
-      image: testproj.jpg
-      alt: TODO
-      body: |
-        TODO
-      tryit: https://kentquirk.github.io/genuary26/testproj/
-      source: https://github.com/kentquirk/genuary26/tree/main/genuary26/sketches/testproj/src/sketch.ts
