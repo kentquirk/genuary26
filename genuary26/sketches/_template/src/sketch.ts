@@ -1,4 +1,4 @@
-import p5 from 'p5';
+import type p5 from 'p5';
 
 export function sketch(p: p5) {
   let paused = false;
@@ -7,7 +7,9 @@ export function sketch(p: p5) {
   const getCanvasSize = () => {
     // Get the parent container element
     const container = document.getElementById('sketch-holder');
-    if (!container) return p.windowWidth;
+    if (!container) {
+      return p.windowWidth;
+    }
 
     // Get container width
     const containerWidth = container.clientWidth;
