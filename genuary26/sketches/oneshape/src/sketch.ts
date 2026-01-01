@@ -1,4 +1,4 @@
-import p5 from 'p5';
+import type p5 from 'p5';
 
 let triangles : triangle[] = [];
 let triangleColor: p5.Color | undefined; // Initialize as undefined until p5 is ready
