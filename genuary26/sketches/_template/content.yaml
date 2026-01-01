@@ -1,0 +1,11 @@
+    - name: __NAME__
+      title: __TITLE__
+      subtitle: TODO
+      day: __DAY__
+      timestamp: Genuary __DAY__, 2026
+      image: __NAME__.jpg
+      alt: TODO
+      body: |
+        TODO
+      tryit: https://kentquirk.github.io/genuary26/__NAME__/
+      source: https://github.com/kentquirk/genuary26/tree/main/genuary26/sketches/__NAME__/src/sketch.ts

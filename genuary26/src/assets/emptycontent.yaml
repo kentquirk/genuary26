@@ -1,0 +1,4 @@
+# this is the general content file that will be built by merging
+# individual sketch content files
+content:
+  artworks:

@@ -1,21 +1,26 @@
-# Sketch Template
+# **NAME**
 
-This is a template for creating p5.js sketches with React and Bootstrap.
+## **TITLE**
+
+More text goes here
 
 ## Getting Started
 
 1. Copy this `_template` folder to a new folder with your sketch name:
+
    ```bash
    cp -r _template my-sketch-name
    cd my-sketch-name
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    ```
 
 3. Start the development server:
+
    ```bash
    npm run dev
    ```

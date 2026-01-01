@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
-import { Container, Button, Row, Col } from 'react-bootstrap';
-import p5 from 'p5';
-import { sketch } from './sketch';
+import { useEffect, useRef } from "react";
+import { Container, Button, Row, Col } from "react-bootstrap";
+import p5 from "p5";
+import { sketch } from "./sketch";
 
 function App() {
   const sketchRef = useRef<p5 | null>(null);
@@ -15,7 +15,7 @@ function App() {
     sketchRef.current = new p5((p: p5) => {
       const controls = sketch(p);
       controlsRef.current = controls;
-    }, 'sketch-holder');
+    }, document.getElementById("sketch-holder")!);
 
     // Cleanup on unmount
     return () => {
@@ -42,11 +42,9 @@ function App() {
       <Container className="py-4">
         <Row>
           <Col>
-            <h1 className="text-center mb-3">Sketch Template</h1>
-            <p className="text-center text-muted mb-4">
-              This is a template for creating p5.js sketches with React and Bootstrap.
-              The canvas below is square and responsive to the screen width. Use the
-              buttons to interact with the sketch, or press spacebar to pause and 'r' to restart.
+            <h1 className="text-center mb-3">__TITLE__</h1>
+            <p className="text-center mb-4">
+              An interactive generative sketch for Genuary 2026, Day __DAY__.
             </p>
           </Col>
         </Row>
