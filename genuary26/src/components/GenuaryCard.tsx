@@ -48,7 +48,7 @@ const GenuaryCard = ({
           {body}
         </Card.Text>
         <Row className="g-2 mt-auto">
-          <Col xs={12} sm={6}>
+          <Col xs={8} sm={6}>
             <Button
               variant="primary"
               href={tryit}
@@ -59,7 +59,7 @@ const GenuaryCard = ({
               See it run!
             </Button>
           </Col>
-          <Col xs={12} sm={6}>
+          <Col xs={4} sm={6}>
             <Button
               variant="outline-secondary"
               href={source}
@@ -67,7 +67,7 @@ const GenuaryCard = ({
               rel="noopener noreferrer"
               className="w-100"
             >
-              Source code
+              Source
             </Button>
           </Col>
         </Row>
