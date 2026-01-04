@@ -1,6 +1,6 @@
-# **NAME**
+# __NAME__
 
-## **TITLE**
+## __TITLE__
 
 More text goes here
 

@@ -84,6 +84,7 @@ for sketch_dir in sketches/*/; do
   if [ -f "${sketch_dir}content.yaml" ]; then
     echo "  Merging content.yaml for $sketch_name"
     cat "${sketch_dir}content.yaml" >> src/assets/content.yaml
+    echo "" >> src/assets/content.yaml
   fi
 done
 

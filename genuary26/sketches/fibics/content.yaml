@@ -1,0 +1,16 @@
+    - name: fibics
+      title: Fib-ics
+      subtitle: Fibonacci forever. Create a work that uses the Fibonacci sequence in some way.
+      day: 3
+      timestamp: Genuary 3, 2026
+      image: fibics.png
+      alt: |
+        A rectangular spiral pattern where each segment is divided into a number of smaller
+        rectangles based on the Fibonacci sequence.
+      body: |
+        This sketch draws a rectangular spiral pattern where each segment's length is determined
+        by the Fibonacci sequence. The thickness of the lines and the colors can be randomized
+        to create different visual effects. I had trouble deciding what to do with this prompt,
+        so it's not very sophisticated.
+      tryit: https://kentquirk.github.io/genuary26/fibics/
+      source: https://github.com/kentquirk/genuary26/tree/main/genuary26/sketches/fibics/src/sketch.ts

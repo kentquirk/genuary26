@@ -25,10 +25,10 @@ interface ContentData {
 
 function App() {
   const data = yaml.load(contentYaml) as ContentData;
-  // now sort the artworks by day if day field exists
+  // now reverse sort the artworks by day if day field exists
   const artworks = data.content.artworks.sort((a, b) => {
     if ("day" in a && "day" in b) {
-      return a.day - b.day;
+      return b.day - a.day;
     }
     return 0;
   });
