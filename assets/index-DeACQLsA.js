@@ -31,7 +31,7 @@ content:
       subtitle: (Lowres. An image or graphic with low resolution, where details are simplified or pixelated.)
       day: 4
       timestamp: Genuary 4, 2026
-      image: lores.jpg
+      image: lores.png
       alt: |
         A reduced-resolution image (randomly chosen) that is actually split into its RGB color channels,
         by pressing the "Jump!" button, channels will bounce.
