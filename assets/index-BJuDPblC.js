@@ -15,7 +15,7 @@ content:
       subtitle: Fibonacci forever. Create a work that uses the Fibonacci sequence in some way.
       day: 3
       timestamp: Genuary 3, 2026
-      image: fibics.jpg
+      image: fibics.png
       alt: |
         A rectangular spiral pattern where each segment is divided into a number of smaller
         rectangles based on the Fibonacci sequence.
