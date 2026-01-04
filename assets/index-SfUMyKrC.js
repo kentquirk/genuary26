@@ -25,7 +25,8 @@ content:
         to create different visual effects. I had trouble deciding what to do with this prompt,
         so it's not very sophisticated.
       tryit: https://kentquirk.github.io/genuary26/fibics/
-      source: https://github.com/kentquirk/genuary26/tree/main/genuary26/sketches/fibics/src/sketch.ts    - name: oneshape
+      source: https://github.com/kentquirk/genuary26/tree/main/genuary26/sketches/fibics/src/sketch.ts
+    - name: oneshape
       title: One Shape, One Color
       subtitle: (Triangles)
       day: 1
@@ -38,6 +39,7 @@ content:
         between black and the chosen color. All the triangles are randomly rotated.
       tryit: https://kentquirk.github.io/genuary26/oneshape/
       source: https://github.com/kentquirk/genuary26/tree/main/genuary26/sketches/oneshape/src/sketch.ts
+
 `;function Id(u){return typeof u>"u"||u===null}function jv(u){return typeof u=="object"&&u!==null}function qv(u){return Array.isArray(u)?u:Id(u)?[]:[u]}function Lv(u,f){var o,r,s,m;if(f)for(m=Object.keys(f),o=0,r=m.length;o<r;o+=1)s=m[o],u[s]=f[s];return u}function Gv(u,f){var o="",r;for(r=0;r<f;r+=1)o+=u;return o}function Qv(u){return u===0&&Number.NEGATIVE_INFINITY===1/u}var Xv=Id,Zv=jv,Vv=qv,Kv=Gv,wv=Qv,Jv=Lv,Hl={isNothing:Xv,isObject:Zv,toArray:Vv,repeat:Kv,isNegativeZero:wv,extend:Jv};function Pd(u,f){var o="",r=u.reason||"(unknown reason)";return u.mark?(u.mark.name&&(o+='in "'+u.mark.name+'" '),o+="("+(u.mark.line+1)+":"+(u.mark.column+1)+")",!f&&u.mark.snippet&&(o+=`
 
 `+u.mark.snippet),r+" "+o):r}function Zu(u,f){Error.call(this),this.name="YAMLException",this.reason=u,this.mark=f,this.message=Pd(this,!1),Error.captureStackTrace?Error.captureStackTrace(this,this.constructor):this.stack=new Error().stack||""}Zu.prototype=Object.create(Error.prototype);Zu.prototype.constructor=Zu;Zu.prototype.toString=function(f){return this.name+": "+Pd(this,f)};var kl=Zu;function Kc(u,f,o,r,s){var m="",h="",g=Math.floor(s/2)-1;return r-f>g&&(m=" ... ",f=r-g+m.length),o-r>g&&(h=" ...",o=r+g-h.length),{str:m+u.slice(f,o).replace(/\t/g,"→")+h,pos:r-f+m.length}}function wc(u,f){return Hl.repeat(" ",f-u.length)+u}function Fv(u,f){if(f=Object.create(f||null),!u.buffer)return null;f.maxLength||(f.maxLength=79),typeof f.indent!="number"&&(f.indent=1),typeof f.linesBefore!="number"&&(f.linesBefore=3),typeof f.linesAfter!="number"&&(f.linesAfter=2);for(var o=/\r?\n|\r|\0/g,r=[0],s=[],m,h=-1;m=o.exec(u.buffer);)s.push(m.index),r.push(m.index+m[0].length),u.position<=m.index&&h<0&&(h=r.length-2);h<0&&(h=r.length-1);var g="",A,v,U=Math.min(u.line+f.linesAfter,s.length).toString().length,O=f.maxLength-(f.indent+U+3);for(A=1;A<=f.linesBefore&&!(h-A<0);A++)v=Kc(u.buffer,r[h-A],s[h-A],u.position-(r[h]-r[h-A]),O),g=Hl.repeat(" ",f.indent)+wc((u.line-A+1).toString(),U)+" | "+v.str+`
