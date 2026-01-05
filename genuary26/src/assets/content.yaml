@@ -18,6 +18,19 @@ content:
         so it's not very sophisticated.
       tryit: https://kentquirk.github.io/genuary26/fibics/
       source: https://github.com/kentquirk/genuary26/tree/main/genuary26/sketches/fibics/src/sketch.ts
+    - name: lores
+      title: Low Res Imagery
+      subtitle: (Lowres. An image or graphic with low resolution, where details are simplified or pixelated.)
+      day: 4
+      timestamp: Genuary 4, 2026
+      image: lores.png
+      alt: |
+        A reduced-resolution image (randomly chosen) that is actually split into its RGB color channels,
+        by pressing the "Jump!" button, channels will bounce.
+      body: |
+        Just playing with low-resolution images, color channels, and blending modes.
+      tryit: https://kentquirk.github.io/genuary26/lores/
+      source: https://github.com/kentquirk/genuary26/tree/main/genuary26/sketches/lores/src/sketch.ts
     - name: oneshape
       title: One Shape, One Color
       subtitle: (Triangles)
