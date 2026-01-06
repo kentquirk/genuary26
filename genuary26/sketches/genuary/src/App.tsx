@@ -8,14 +8,19 @@ function App() {
   const controlsRef = useRef<{
     restart: () => void;
     randomizeColor: () => void;
+    addBall: () => void;
   } | null>(null);
 
   useEffect(() => {
     // Initialize p5 sketch with instance mode
+    const holder = document.getElementById("sketch-holder");
+    if (!holder) {
+      return;
+    }
     sketchRef.current = new p5((p: p5) => {
       const controls = sketch(p);
       controlsRef.current = controls;
-    }, document.getElementById("sketch-holder")!);
+    }, holder);
 
     // Cleanup on unmount
     return () => {
@@ -34,6 +39,12 @@ function App() {
   const handleRandomizeColor = () => {
     if (controlsRef.current) {
       controlsRef.current.randomizeColor();
+    }
+  };
+
+  const handleAddBall = () => {
+    if (controlsRef.current) {
+      controlsRef.current.addBall();
     }
   };
 
@@ -70,6 +81,15 @@ function App() {
               className="w-100"
             >
               Randomize Color
+            </Button>
+          </Col>
+          <Col xs={4} className="mb-2 mb-sm-0">
+            <Button
+              variant="secondary"
+              onClick={handleAddBall}
+              className="w-100"
+            >
+              Add Ball
             </Button>
           </Col>
           <Col xs={4}>

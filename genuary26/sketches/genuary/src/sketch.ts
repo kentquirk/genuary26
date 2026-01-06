@@ -73,6 +73,14 @@ export function sketch(p: p5) {
       r: p.random(ballMinRadius, ballMaxRadius),
     };
   };
+  
+  const addBall = () => {
+    // Prevent adding from inactive instances
+    if (p.width === 0 || p.height === 0) {
+      return;
+    }
+    balls.push(createRandomBall());
+  };
 
   const getCanvasSize = () => {
     // Get the parent container element
@@ -163,7 +171,7 @@ export function sketch(p: p5) {
   p.keyTyped = () => {
     switch (p.key) {
       case " ":
-        paused = !paused;
+        addBall();
         return false; // Prevent default browser behavior
       case "r":
         restart();
@@ -408,5 +416,6 @@ export function sketch(p: p5) {
   return {
     restart,
     randomizeColor,
+    addBall,
   };
 }
