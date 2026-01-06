@@ -1,0 +1,11 @@
+    - name: genuary
+      title: Write 'Genuary'. Don't use a font.
+      subtitle: TODO
+      day: 5
+      timestamp: Genuary 5, 2026
+      image: genuary.jpg
+      alt: TODO
+      body: |
+        TODO
+      tryit: https://kentquirk.github.io/genuary26/genuary/
+      source: https://github.com/kentquirk/genuary26/tree/main/genuary26/sketches/genuary/src/sketch.ts
