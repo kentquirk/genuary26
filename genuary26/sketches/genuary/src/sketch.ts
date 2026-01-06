@@ -4,7 +4,7 @@ const genuary = `
 ******  ******  *     *  *     *     *     *****   *     *
 *       *       **    *  *     *    * *    *    *   *   *
 *       *       * *   *  *     *   *   *   *    *    * *
-*  ***  ****    *  *  *  *     *  *** ***  * ***      *
+*  ***  ****    *  *  *  *     *  *** ***  *  **      *
 *    *  *       *   * *  *     *  *     *  *  *       *
 *    *  *       *    **  *     *  *     *  *   *      *
 ******  ******  *     *  *******  *     *  *    *     *
@@ -12,7 +12,11 @@ const genuary = `
 
 export function sketch(p: p5) {
   let paused = false;
-  let backgroundColor = 0;
+  let backgroundColor: p5.Color;
+  let solidColor: p5.Color;
+  let paintedColor: p5.Color;
+  let emptyColor: p5.Color;
+  let ballColor: p5.Color;
 
   // Grid configuration
   type CellState = "solid" | "painted" | "empty";
@@ -21,40 +25,25 @@ export function sketch(p: p5) {
   let grid: CellState[][] = [];
 
   // Drawing colors
-  const SOLID_COLOR = 20; // dark
-  const PAINTED_COLOR = 20; // mid
-  const EMPTY_COLOR = 255; // light
 
   // Ball configuration
   type Ball = { x: number; y: number; vx: number; vy: number; r: number };
   let balls: Ball[] = [];
-  const BALL_MIN_RADIUS = 3;
-  const BALL_MAX_RADIUS = 8;
   const BALL_MIN_SPEED = 250; // px/s
   const BALL_MAX_SPEED = 1000; // px/s
 
   const createRandomBall = (): Ball => {
-    // Fallback early if grid/canvas not ready yet
-    // if (!grid.length || !grid[0]?.length || p.width === 0 || p.height === 0) {
-    //   const angle = p.random(0, Math.PI * 2);
-    //   const speed = p.random(BALL_MIN_SPEED, BALL_MAX_SPEED);
-    //   return {
-    //     x: Math.max(
-    //       BALL_MAX_RADIUS,
-    //       Math.min(p.width - BALL_MAX_RADIUS, p.width / 2 || 0)
-    //     ),
-    //     y: Math.max(
-    //       BALL_MAX_RADIUS,
-    //       Math.min(p.height - BALL_MAX_RADIUS, p.height / 2 || 0)
-    //     ),
-    //     vx: Math.cos(angle) * speed,
-    //     vy: Math.sin(angle) * speed,
-    //     r: p.random(BALL_MIN_RADIUS, BALL_MAX_RADIUS),
-    //   };
-    // }
     const cellW = p.width / GRID_WIDTH;
     const cellH = p.height / GRID_HEIGHT;
+    const ballMinRadius = cellW * 0.3;
+    const ballMaxRadius = cellW * 1.2;
     const maxAttempts = 1000;
+
+    // guard against resize
+    if (p.width === 0 || p.height === 0) {
+      return { x: 0, y: 0, vx: 0, vy: 0, r: ballMinRadius };
+    }
+
     for (let attempt = 0; attempt < maxAttempts; attempt++) {
       const row = Math.floor(p.random(GRID_HEIGHT));
       const col = Math.floor(p.random(GRID_WIDTH));
@@ -69,7 +58,7 @@ export function sketch(p: p5) {
           y,
           vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed,
-          r: p.random(BALL_MIN_RADIUS, BALL_MAX_RADIUS),
+          r: p.random(ballMinRadius, ballMaxRadius),
         };
       }
     }
@@ -81,7 +70,7 @@ export function sketch(p: p5) {
       y: p.height / 2,
       vx: Math.cos(angle) * speed,
       vy: Math.sin(angle) * speed,
-      r: p.random(BALL_MIN_RADIUS, BALL_MAX_RADIUS),
+      r: p.random(ballMinRadius, ballMaxRadius),
     };
   };
 
@@ -107,7 +96,11 @@ export function sketch(p: p5) {
 
   const restart = () => {
     // Reset sketch state here
-    backgroundColor = 0;
+    backgroundColor = p.color(0);
+    solidColor = p.color(20);
+    paintedColor = p.color(20);
+    emptyColor = p.color(255);
+    ballColor = p.color(255, 0, 0);
     paused = false;
 
     // Initialize grid to painted
@@ -146,11 +139,19 @@ export function sketch(p: p5) {
     }
 
     // Initialize balls: 10 random spawns on non-solid cells
-    balls = Array.from({ length: 10 }, () => createRandomBall());
+    balls = Array.from({ length: 15 }, () => createRandomBall());
   };
 
   const randomizeColor = () => {
-    backgroundColor = p.random(255);
+    backgroundColor = p.color(p.random(255));
+    solidColor = p.color(p.random(128), p.random(128), p.random(128));
+    paintedColor = solidColor;
+    emptyColor = p.color(
+      p.random(200, 255),
+      p.random(200, 255),
+      p.random(200, 255)
+    );
+    ballColor = p.color(p.random(255), p.random(255), p.random(255));
   };
 
   p.windowResized = () => {
@@ -169,6 +170,9 @@ export function sketch(p: p5) {
         return false;
       case "b":
       case "B":
+        if (p.width === 0 || p.height === 0) {
+          return false;
+        }
         balls.push(createRandomBall());
         return false;
     }
@@ -186,17 +190,36 @@ export function sketch(p: p5) {
     const cellW = p.width / GRID_WIDTH;
     const cellH = p.height / GRID_HEIGHT;
 
-    // Update balls (movement and collisions) with adaptive substeps to prevent tunneling
+    // Update balls (movement and collisions) with adaptive substeps and ball-ball collisions
     if (!paused) {
       const dt = p.deltaTime / 1000; // seconds
       const moveThreshold = Math.max(1e-4, 0.5 * Math.min(cellW, cellH));
+      const maxSpeed = balls.length
+        ? Math.max(...balls.map((b) => Math.hypot(b.vx, b.vy)))
+        : 0;
+      const steps = Math.max(1, Math.ceil((maxSpeed * dt) / moveThreshold));
+      const stepDt = dt / steps;
 
-      for (const b of balls) {
-        const speed = Math.hypot(b.vx, b.vy);
-        const steps = Math.max(1, Math.ceil((speed * dt) / moveThreshold));
-        const stepDt = dt / steps;
+      const circleRectIntersect = (
+        cx: number,
+        cy: number,
+        r: number,
+        rx: number,
+        ry: number,
+        rw: number,
+        rh: number
+      ) => {
+        const nx = Math.max(rx, Math.min(cx, rx + rw));
+        const ny = Math.max(ry, Math.min(cy, ry + rh));
+        const dx = cx - nx;
+        const dy = cy - ny;
+        return dx * dx + dy * dy <= r * r;
+      };
 
-        for (let s = 0; s < steps; s++) {
+      for (let s = 0; s < steps; s++) {
+        // Move and collide with grid
+        for (let i = 0; i < balls.length; i++) {
+          const b = balls[i];
           const prevX = b.x;
           const prevY = b.y;
 
@@ -215,23 +238,6 @@ export function sketch(p: p5) {
             GRID_HEIGHT - 1,
             Math.floor((b.y + b.r) / cellH)
           );
-
-          // Helper: circle-rect intersection test
-          const circleRectIntersect = (
-            cx: number,
-            cy: number,
-            r: number,
-            rx: number,
-            ry: number,
-            rw: number,
-            rh: number
-          ) => {
-            const nx = Math.max(rx, Math.min(cx, rx + rw));
-            const ny = Math.max(ry, Math.min(cy, ry + rh));
-            const dx = cx - nx;
-            const dy = cy - ny;
-            return dx * dx + dy * dy <= r * r;
-          };
 
           let bounced = false;
           for (let row = minRow; row <= maxRow && !bounced; row++) {
@@ -310,33 +316,89 @@ export function sketch(p: p5) {
             b.vy = -Math.abs(b.vy);
           }
         }
+
+        // Ball-ball collisions (equal-mass elastic)
+        for (let i = 0; i < balls.length; i++) {
+          for (let j = i + 1; j < balls.length; j++) {
+            const bi = balls[i];
+            const bj = balls[j];
+            const dx = bj.x - bi.x;
+            const dy = bj.y - bi.y;
+            const rSum = bi.r + bj.r;
+            const dist2 = dx * dx + dy * dy;
+            if (dist2 > rSum * rSum) {
+              continue;
+            }
+
+            const dist = Math.max(1e-6, Math.sqrt(dist2));
+            const nx = dx / dist;
+            const ny = dy / dist;
+
+            // Resolve penetration by splitting movement
+            const penetration = rSum - dist;
+            const sep = penetration / 2;
+            bi.x -= nx * sep;
+            bi.y -= ny * sep;
+            bj.x += nx * sep;
+            bj.y += ny * sep;
+
+            // Relative normal velocity; only resolve if approaching
+            const relVx = bj.vx - bi.vx;
+            const relVy = bj.vy - bi.vy;
+            const relN = relVx * nx + relVy * ny;
+            if (relN < 0) {
+              // Decompose velocities into normal and tangent
+              const viN = bi.vx * nx + bi.vy * ny;
+              const vjN = bj.vx * nx + bj.vy * ny;
+              const tx = -ny;
+              const ty = nx;
+              const viT = bi.vx * tx + bi.vy * ty;
+              const vjT = bj.vx * tx + bj.vy * ty;
+
+              // Equal-mass elastic: swap normal components
+              const newViN = vjN;
+              const newVjN = viN;
+
+              bi.vx = newViN * nx + viT * tx;
+              bi.vy = newViN * ny + viT * ty;
+              bj.vx = newVjN * nx + vjT * tx;
+              bj.vy = newVjN * ny + vjT * ty;
+            }
+          }
+        }
       }
     }
 
     // Draw the grid scaled to the canvas
     p.noStroke();
+    let nPainted = 0;
     for (let r = 0; r < GRID_HEIGHT; r++) {
       for (let c = 0; c < GRID_WIDTH; c++) {
         const state = grid[r][c];
         switch (state) {
           case "solid":
-            p.fill(SOLID_COLOR);
+            p.fill(solidColor);
             break;
           case "painted":
-            p.fill(PAINTED_COLOR);
+            nPainted++;
+            p.fill(paintedColor);
             break;
           case "empty":
-            p.fill(EMPTY_COLOR);
+            p.fill(emptyColor);
             break;
         }
         p.rect(c * cellW, r * cellH, cellW, cellH);
       }
     }
 
+    if (nPainted === 0 && !paused) {
+      paused = true;
+    }
+
     // Draw balls
     p.stroke(0);
     p.strokeWeight(1);
-    p.fill(255, 0, 0);
+    p.fill(ballColor);
     for (const b of balls) {
       p.circle(b.x, b.y, b.r * 2);
     }

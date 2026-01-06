@@ -18,6 +18,21 @@ content:
         so it's not very sophisticated.
       tryit: https://kentquirk.github.io/genuary26/fibics/
       source: https://github.com/kentquirk/genuary26/tree/main/genuary26/sketches/fibics/src/sketch.ts
+    - name: genuary
+      title: Write 'Genuary'. Don't use a font.
+      subtitle: Let's use bouncing balls to play breakout with letters.
+      day: 5
+      timestamp: Genuary 5, 2026
+      image: genuary.png
+      alt: A still shot of bouncing balls flying around a grid with letters almost forming the word "Genuary".
+      body: |
+        I made the word with ASCII art in the source code, then used that image to fill in a grid with
+        "solid" cells where the letters are. Then I made a bunch of balls that bounce around the screen,
+        bouncing off the walls and each other, and erasing the grid cells they roll over while bouncing
+        off the solid cells. The balls have random sizes and speeds and collide with each other, so they
+        eventually clear the whole word away.
+      tryit: https://kentquirk.github.io/genuary26/genuary/
+      source: https://github.com/kentquirk/genuary26/tree/main/genuary26/sketches/genuary/src/sketch.ts
     - name: lores
       title: Low Res Imagery
       subtitle: (Lowres. An image or graphic with low resolution, where details are simplified or pixelated.)

@@ -50,9 +50,12 @@ function App() {
                 ← Home
               </a>
             </div>
-            <h1 className="text-center mb-3">Write 'Genuary'. Don't use a font.</h1>
+            <h1 className="text-center mb-3">
+              Write 'Genuary'. Don't use a font.
+            </h1>
             <p className="text-center mb-4">
-              An interactive generative sketch for Genuary 2026, Day 5.
+              An interactive generative sketch for Genuary 2026, Day 5. It'll
+              stop when it's got nothing left to do. Click "b" to add a ball.
             </p>
           </Col>
         </Row>
