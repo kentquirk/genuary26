@@ -35,9 +35,9 @@ content:
       source: https://github.com/kentquirk/genuary26/tree/main/genuary26/sketches/genuary/src/sketch.ts
     - name: logicgrid
       title: Logic Grid
-      subtitle: Boolean Logic
+      subtitle: Boolean Logic / Cellular Automaton
       day: 7
-      timestamp: Genuary 7, 2026
+      timestamp: Genuary 7 & 9, 2026
       image: logicgrid.png
       alt: A regular grid of squares, some filled in black and some white, forming a pattern.
       body: |
