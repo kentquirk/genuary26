@@ -48,10 +48,10 @@ function App() {
             boundaries of generative art.
           </p>
           <p>
-            Below are my projects for Genuary 2026, showcasing a variety of
-            creative coding experiments. Each piece can be viewed interactively,
-            and the source code is available for those interested in learning
-            more about how they work.
+            Below are my projects for Genuary 2026 -- a variety of creative
+            coding experiments. Each piece can be viewed interactively, and the
+            source code is available in case you want to learn more about how
+            they work.
           </p>
         </div>
       </header>

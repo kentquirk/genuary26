@@ -1,4 +1,4 @@
-import type p5 from 'p5';
+import type p5 from "p5";
 
 export function sketch(p: p5) {
   let paused = false;
@@ -6,7 +6,7 @@ export function sketch(p: p5) {
 
   const getCanvasSize = () => {
     // Get the parent container element
-    const container = document.getElementById('sketch-holder');
+    const container = document.getElementById("sketch-holder");
     if (!container) {
       return p.windowWidth;
     }
@@ -42,10 +42,10 @@ export function sketch(p: p5) {
 
   p.keyTyped = () => {
     switch (p.key) {
-      case ' ':
+      case " ":
         paused = !paused;
         return false; // Prevent default browser behavior
-      case 'r':
+      case "r":
         restart();
         return false;
     }
