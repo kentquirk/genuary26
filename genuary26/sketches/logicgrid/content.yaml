@@ -1,0 +1,18 @@
+    - name: logicgrid
+      title: Logic Grid
+      subtitle: Boolean Logic
+      day: 7
+      timestamp: Genuary 7, 2026
+      image: logicgrid.png
+      alt: A regular grid of squares, some filled in black and some white, forming a pattern.
+      body: |
+        This sketch implements a cellular automaton on a grid where each cell
+        can implement boolean logic operations (AND, OR, NOT) based on the
+        states of its neighboring cells. The neighborhood is defined as the four
+        adjacent cells (up, down, left, right). The cells can be colored by the
+        user to set their logic function, and the automaton evolves over time
+        based on these functions. If you enjoy Conway's Game of Life, you'll
+        likely find this sketch intriguing as it introduces logical operations
+        into the cellular automaton framework.
+      tryit: https://kentquirk.github.io/genuary26/logicgrid/
+      source: https://github.com/kentquirk/genuary26/tree/main/genuary26/sketches/logicgrid/src/sketch.ts

@@ -1,0 +1,345 @@
+:root {
+  /* Theme Colors */
+  --bg-color: #808080;
+  --primary-color: #3160b3;
+  --primary-hover: #5A7FC9;
+  --secondary-color: #91CADE;
+  --secondary-hover: #6FB2C6;
+  --text-color: #C3FDFC;
+
+  /* Operator Colors */
+  --op-and: #e32a00;
+  --op-or: #00b521;
+  --op-xor: #0024c2;
+  --op-nand: #b50060;
+  --op-nor: #6501bb;
+  --op-xnor: #00a89f;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+#root {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+}
+
+.sketch-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 100vw;
+  padding: 0 1rem 1rem 1rem;
+  box-sizing: border-box;
+}
+
+.sketch-container canvas {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  cursor: crosshair;
+}
+
+/* Bootstrap card overrides */
+.card {
+  background-color: #743795;
+  color: var(--text-color);
+  border: none;
+}
+
+.card-title {
+  color: var(--text-color);
+}
+
+.card-subtitle {
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.card-text {
+  color: var(--text-color);
+}
+
+/* Bootstrap button overrides */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover,
+.btn-primary:active {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--primary-hover);
+  outline-offset: 2px;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: #000;
+}
+
+.btn-secondary:hover,
+.btn-secondary:active {
+  background-color: var(--secondary-hover);
+  border-color: var(--secondary-hover);
+  color: #000;
+}
+
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--secondary-hover);
+  outline-offset: 2px;
+}
+
+.btn-outline-secondary {
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus,
+.btn-outline-secondary:active {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: #000;
+}
+
+/* High-contrast Home link */
+.home-link {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.home-link:hover,
+.home-link:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+.home-link:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Custom operator and paint button variants */
+.btn-and {
+  background-color: var(--op-and);
+  border-color: var(--op-and);
+  color: #fff;
+}
+.btn-and:hover,
+.btn-and:focus,
+.btn-and:active {
+  background-color: var(--op-and);
+  border-color: var(--op-and);
+  color: #fff;
+}
+.btn-outline-and {
+  color: var(--op-and);
+  border-color: var(--op-and);
+}
+.btn-outline-and:hover,
+.btn-outline-and:focus,
+.btn-outline-and:active {
+  background-color: var(--op-and);
+  border-color: var(--op-and);
+  color: #fff;
+}
+
+.btn-or {
+  background-color: var(--op-or);
+  border-color: var(--op-or);
+  color: #fff;
+}
+.btn-or:hover,
+.btn-or:focus,
+.btn-or:active {
+  background-color: var(--op-or);
+  border-color: var(--op-or);
+  color: #fff;
+}
+.btn-outline-or {
+  color: var(--op-or);
+  border-color: var(--op-or);
+}
+.btn-outline-or:hover,
+.btn-outline-or:focus,
+.btn-outline-or:active {
+  background-color: var(--op-or);
+  border-color: var(--op-or);
+  color: #fff;
+}
+
+.btn-xor {
+  background-color: var(--op-xor);
+  border-color: var(--op-xor);
+  color: #fff;
+}
+.btn-xor:hover,
+.btn-xor:focus,
+.btn-xor:active {
+  background-color: var(--op-xor);
+  border-color: var(--op-xor);
+  color: #fff;
+}
+.btn-outline-xor {
+  color: var(--op-xor);
+  border-color: var(--op-xor);
+}
+.btn-outline-xor:hover,
+.btn-outline-xor:focus,
+.btn-outline-xor:active {
+  background-color: var(--op-xor);
+  border-color: var(--op-xor);
+  color: #fff;
+}
+
+.btn-nand {
+  background-color: var(--op-nand);
+  border-color: var(--op-nand);
+  color: #fff;
+}
+.btn-nand:hover,
+.btn-nand:focus,
+.btn-nand:active {
+  background-color: var(--op-nand);
+  border-color: var(--op-nand);
+  color: #fff;
+}
+.btn-outline-nand {
+  color: var(--op-nand);
+  border-color: var(--op-nand);
+}
+.btn-outline-nand:hover,
+.btn-outline-nand:focus,
+.btn-outline-nand:active {
+  background-color: var(--op-nand);
+  border-color: var(--op-nand);
+  color: #fff;
+}
+
+.btn-nor {
+  background-color: var(--op-nor);
+  border-color: var(--op-nor);
+  color: #fff;
+}
+.btn-nor:hover,
+.btn-nor:focus,
+.btn-nor:active {
+  background-color: var(--op-nor);
+  border-color: var(--op-nor);
+  color: #fff;
+}
+.btn-outline-nor {
+  color: var(--op-nor);
+  border-color: var(--op-nor);
+}
+.btn-outline-nor:hover,
+.btn-outline-nor:focus,
+.btn-outline-nor:active {
+  background-color: var(--op-nor);
+  border-color: var(--op-nor);
+  color: #fff;
+}
+
+.btn-xnor {
+  background-color: var(--op-xnor);
+  border-color: var(--op-xnor);
+  color: #fff;
+}
+.btn-xnor:hover,
+.btn-xnor:focus,
+.btn-xnor:active {
+  background-color: var(--op-xnor);
+  border-color: var(--op-xnor);
+  color: #fff;
+}
+.btn-outline-xnor {
+  color: var(--op-xnor);
+  border-color: var(--op-xnor);
+}
+.btn-outline-xnor:hover,
+.btn-outline-xnor:focus,
+.btn-outline-xnor:active {
+  background-color: var(--op-xnor);
+  border-color: var(--op-xnor);
+  color: #fff;
+}
+
+.btn-black {
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+}
+.btn-black:hover,
+.btn-black:focus,
+.btn-black:active {
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+}
+.btn-outline-black {
+  color: #000;
+  border-color: #000;
+}
+.btn-outline-black:hover,
+.btn-outline-black:focus,
+.btn-outline-black:active {
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+.btn-white {
+  background-color: #fff;
+  border-color: #fff;
+  color: #000;
+}
+.btn-white:hover,
+.btn-white:focus,
+.btn-white:active {
+  background-color: #fff;
+  border-color: #fff;
+  color: #000;
+}
+.btn-outline-white {
+  color: #fff;
+  border-color: #fff;
+}
+.btn-outline-white:hover,
+.btn-outline-white:focus,
+.btn-outline-white:active {
+  background-color: #fff;
+  border-color: #fff;
+  color: #000;
+}
+
+/* Outline variant that matches global text color */
+.btn-outline-text {
+  color: var(--text-color);
+  border-color: var(--text-color);
+}
+.btn-outline-text:hover,
+.btn-outline-text:active {
+  background-color: var(--text-color);
+  border-color: var(--text-color);
+  color: #000;
+}
+
+/* Keep a clear focus state without forcing fill */
+.btn-outline-text:focus-visible {
+  outline: 2px solid var(--text-color);
+  outline-offset: 2px;
+}
